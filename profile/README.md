@@ -1,44 +1,72 @@
 # stit-core
 
-Форкаемые шаблоны проектов экосистемы stit: стратегия бизнеса, бэкенд на Go и Python, SPA и
-SSR-фронтенд, мобилка, Telegram-бот и инфраструктура. В каждом — готовая обвязка: стандарты,
-тесты, гейты и релиз. Вы пишете домены, а не каркас.
+Форкаемые шаблоны и стандарт разработки экосистемы stit: стратегия бизнеса, бэкенд на Go и Python,
+SPA и SSR-фронтенд, мобилка, Telegram-бот и инфраструктура. В каждом шаблоне — готовая обвязка:
+стандарты, тесты, гейты и релиз. Вы пишете домены, а не каркас.
 
-> Forkable project templates by stit. These repositories are a read-only mirror of our private
-> Gitea; the docs are in Russian.
+> Forkable project templates and a development standard by stit. These repositories are a
+> read-only mirror of our private Gitea; the docs are in Russian.
+
+## Как этим пользоваться
+
+Шаблоны — не набор отдельных заготовок, а одна система. Проект — это организация из нескольких
+форков, которые лежат рядом в одной папке и знают друг о друге. Правильный путь такой:
+
+1. **Стратегия и дизайн.** Форкните [business-strategy-template](https://github.com/stit-core/business-strategy-template)
+   в `<org>/strategy` и спроектируйте в нём всё: бизнес, рынок, гипотезы, продукт, домены и
+   дизайн. Это источник истины для остальных репозиториев — они его читают.
+2. **Структура репозиториев.** Решите, какие репозитории нужны проекту: бэкенд, фронтенд, сайт,
+   бот, мобилка. Карта всех репозиториев и контракты между ними —
+   в [`ecosystem.md`](https://github.com/stit-core/project-infra-template-compose/blob/main/docs/reference/ecosystem.md).
+3. **Создание репозиториев.** Форкните нужные шаблоны в свою организацию и склонируйте все форки
+   рядом, в одну папку.
+4. **Работа из инфра-репозитория.** Форк [project-infra-template-compose](https://github.com/stit-core/project-infra-template-compose)
+   (`<org>/infra`) — операционный хаб проекта. Из него управляются все остальные репозитории и
+   серверы, идёт выкатка, и из него же запускаются агенты в соседние репозитории. Заходите в
+   инфра-репозиторий и все действия выполняйте оттуда.
+
+```
+<org>/strategy                      стратегия, продукт, домены, дизайн
+      │  читается остальными репозиториями
+      ▼
+<org>/infra                         операционный хаб: план, серверы, выкатка, агенты
+      │
+      ▼
+<org>/{backend,frontend,site,bot}   код; выкатываются из infra
+<org>/mobile                        задачи из infra, релиз в магазины
+```
 
 ## Шаблоны
 
 | Репозиторий | Что это |
 |---|---|
 | [business-strategy-template](https://github.com/stit-core/business-strategy-template) | Стратегия бизнеса: бизнес, рынок и стейкхолдеры → SWOT → карта гипотез → задачи проверки |
+| [project-infra-template-compose](https://github.com/stit-core/project-infra-template-compose) | Инфра-репозиторий проекта: VPS одним docker-compose стеком, выкатка, агенты в соседних репо |
 | [go-backend-template](https://github.com/stit-core/go-backend-template) | Go HTTP-бэкенд: huma/v2, chi, pgx/v5, sqlc, uber/fx поверх `golibinfra` |
-| [golibinfra](https://github.com/stit-core/golibinfra) | Инфраструктурные Go-киты с OpenTelemetry: auth, БД, messaging, кэш, аудит, storage, AI-клиент |
-| [pylibinfra](https://github.com/stit-core/pylibinfra) | Инфраструктурные Python-киты на dishka с OpenTelemetry, включая Telegram-бот |
 | [spa-frontend-template](https://github.com/stit-core/spa-frontend-template) | React SPA: Vite, TypeScript, React 19, TanStack, Feature-Sliced Design, mock-режим |
 | [ssr-frontend-template](https://github.com/stit-core/ssr-frontend-template) | Индексируемый сайт на Astro 7: static-first, SEO-слой, FSD, один Docker-образ |
 | [mobile-template](https://github.com/stit-core/mobile-template) | Android + iOS: Kotlin Multiplatform-ядро, Jetpack Compose и SwiftUI |
 | [telegram-bot-template](https://github.com/stit-core/telegram-bot-template) | Telegram-бот на aiogram 3 и aiogram-dialog поверх `pylibinfra[tgbotkit]` |
-| [project-infra-template-compose](https://github.com/stit-core/project-infra-template-compose) | Проектная VPS-инфра одним docker-compose стеком: edge, Postgres, MinIO, бэкенд, сайт, бэкапы |
-
-## С чего начать
-
-1. **Стратегия.** `business-strategy-template` форкается первым: из него получаются стратегия
-   и, если нужен продукт, его проектные артефакты, которые потом читают репозитории с кодом.
-2. **Код.** Бэкенд — `go-backend-template`. Фронтенд — `spa-frontend-template` для приложения
-   за логином и `ssr-frontend-template` для индексируемого сайта. Ещё есть мобилка и бот.
-   Общая инфраструктура кода лежит в `golibinfra` и `pylibinfra`.
-3. **Инфра.** `project-infra-template-compose`: один форк — один проект, по VPS на среду.
+| [golibinfra](https://github.com/stit-core/golibinfra) | Инфраструктурные Go-киты с OpenTelemetry: auth, БД, messaging, кэш, аудит, storage, AI-клиент |
+| [pylibinfra](https://github.com/stit-core/pylibinfra) | Инфраструктурные Python-киты на dishka с OpenTelemetry, включая Telegram-бот |
 
 Как форкнуть и запустить конкретный шаблон, написано в его README.
 
+## Давайте развивать вместе
+
+Пользуетесь шаблонами, дорабатываете их или собрали на них классный кейс — расскажите нам.
+Присылайте кейсы, идеи и пулл-реквесты: так мы вместе развиваем шаблоны и сам стандарт и
+собираем вокруг него сообщество.
+
+- **Пулл-реквесты** открывайте здесь, на GitHub. Мы переносим изменения в основной репозиторий,
+  и они возвращаются сюда вместе с зеркалом.
+- **Баги и вопросы** — в Issues нужного репозитория.
+- **Связь** — Telegram [@gommgo](https://t.me/gommgo).
+
 ## Это зеркало
 
-Разработка идёт в нашем приватном Gitea (`git.stit.tech`), а сюда репозитории зеркалируются
-как есть, с теми же коммитами, ветками и тегами.
-
-- Пулл-реквесты здесь не вливаются: изменения сначала попадают в Gitea и уже оттуда приезжают сюда.
-- Вопросы, баги и идеи пишите в Issues нужного репозитория.
+Разработка идёт в нашем приватном Gitea (`git.stit.tech`), а сюда репозитории зеркалируются как
+есть, с теми же коммитами, ветками и тегами.
 
 ## Сборка вне нашей инфраструктуры
 
