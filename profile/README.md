@@ -10,8 +10,8 @@ SPA и SSR-фронтенд, мобилка, Telegram-бот и инфрастр
 ## Статус
 
 Стандарт и шаблоны ещё в разработке. Обвязка доделана не во всех репозиториях, скиллы и
-воркфлоу агентов готовы частично, мобильный и SPA-шаблоны — в полуготовом состоянии. Работы
-впереди много: что-то уже готово, что-то сделано наполовину.
+воркфлоу агентов готовы частично, SPA-шаблон — в полуготовом состоянии, а мобильный ещё ни разу
+не тестировался и в разработке. Работы впереди много: что-то уже готово, что-то сделано наполовину.
 
 ## Как этим пользоваться
 
@@ -51,7 +51,7 @@ SPA и SSR-фронтенд, мобилка, Telegram-бот и инфрастр
 | [go-backend-template](https://github.com/stit-core/go-backend-template) | Go HTTP-бэкенд: huma/v2, chi, pgx/v5, sqlc, uber/fx поверх `golibinfra` |
 | [spa-frontend-template](https://github.com/stit-core/spa-frontend-template) | React SPA: Vite, TypeScript, React 19, TanStack, Feature-Sliced Design, mock-режим |
 | [ssr-frontend-template](https://github.com/stit-core/ssr-frontend-template) | Индексируемый сайт на Astro 7: static-first, SEO-слой, FSD, один Docker-образ |
-| [mobile-template](https://github.com/stit-core/mobile-template) | Android + iOS: Kotlin Multiplatform-ядро, Jetpack Compose и SwiftUI |
+| [mobile-template](https://github.com/stit-core/mobile-template) | Android + iOS: Kotlin Multiplatform-ядро, Jetpack Compose и SwiftUI. В разработке, ещё не тестировался |
 | [telegram-bot-template](https://github.com/stit-core/telegram-bot-template) | Telegram-бот на aiogram 3 и aiogram-dialog поверх `pylibinfra[tgbotkit]` |
 | [golibinfra](https://github.com/stit-core/golibinfra) | Инфраструктурные Go-киты с OpenTelemetry: auth, БД, messaging, кэш, аудит, storage, AI-клиент |
 | [pylibinfra](https://github.com/stit-core/pylibinfra) | Инфраструктурные Python-киты на dishka с OpenTelemetry, включая Telegram-бот |
