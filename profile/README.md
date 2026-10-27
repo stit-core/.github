@@ -5,7 +5,13 @@ SPA и SSR-фронтенд, мобилка, Telegram-бот и инфрастр
 стандарты, тесты, гейты и релиз. Вы пишете домены, а не каркас.
 
 > Forkable project templates and a development standard by stit. These repositories are a
-> read-only mirror of our private Gitea; the docs are in Russian.
+> read-only mirror of our private Gitea; the docs are in Russian. Work in progress.
+
+## Статус
+
+Стандарт и шаблоны ещё в разработке. Обвязка доделана не во всех репозиториях, скиллы и
+воркфлоу агентов готовы частично, мобильный и SPA-шаблоны — в полуготовом состоянии. Работы
+впереди много: что-то уже готово, что-то сделано наполовину.
 
 ## Как этим пользоваться
 
@@ -88,5 +94,5 @@ pylibinfra = { git = "https://github.com/stit-core/pylibinfra.git", rev = "v1.0.
 
 ## Лицензия и безопасность
 
-Все шаблоны распространяются под лицензией Apache-2.0. Об уязвимостях пишите на
-security@stit.tech, а не в публичные Issues.
+Все шаблоны распространяются под лицензией Apache-2.0. Об уязвимостях пишите в Telegram
+[@gommgo](https://t.me/gommgo), а не в публичные Issues.
