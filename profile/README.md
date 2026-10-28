@@ -1,7 +1,7 @@
 # stit-core
 
 Форкаемые шаблоны и стандарт разработки экосистемы stit: стратегия бизнеса, бэкенд на Go и Python,
-SPA и SSR-фронтенд, мобилка, Telegram-бот и инфраструктура. В каждом шаблоне — готовая обвязка:
+SPA- и SEO-фронтенд, мобилка, Telegram-бот и инфраструктура. В каждом шаблоне — готовая обвязка:
 стандарты, тесты, гейты и релиз. Вы пишете домены, а не каркас.
 
 > Forkable project templates and a development standard by stit. These repositories are a
@@ -50,7 +50,7 @@ SPA и SSR-фронтенд, мобилка, Telegram-бот и инфрастр
 | [project-infra-template-compose](https://github.com/stit-core/project-infra-template-compose) | Инфра-репозиторий проекта: VPS одним docker-compose стеком, выкатка, агенты в соседних репо |
 | [go-backend-template](https://github.com/stit-core/go-backend-template) | Go HTTP-бэкенд: huma/v2, chi, pgx/v5, sqlc, uber/fx поверх `golibinfra` |
 | [spa-frontend-template](https://github.com/stit-core/spa-frontend-template) | React SPA: Vite, TypeScript, React 19, TanStack, Feature-Sliced Design, mock-режим |
-| [ssr-frontend-template](https://github.com/stit-core/ssr-frontend-template) | Индексируемый сайт на Astro 7: static-first, SEO-слой, FSD, один Docker-образ |
+| [seo-frontend-template](https://github.com/stit-core/seo-frontend-template) | Индексируемый сайт на Astro 7: static-first, SEO-слой, FSD, один Docker-образ |
 | [mobile-template](https://github.com/stit-core/mobile-template) | Android + iOS: Kotlin Multiplatform-ядро, Jetpack Compose и SwiftUI. В разработке, ещё не тестировался |
 | [telegram-bot-template](https://github.com/stit-core/telegram-bot-template) | Telegram-бот на aiogram 3 и aiogram-dialog поверх `pylibinfra[tgbotkit]` |
 | [golibinfra](https://github.com/stit-core/golibinfra) | Инфраструктурные Go-киты с OpenTelemetry: auth, БД, messaging, кэш, аудит, storage, AI-клиент |
